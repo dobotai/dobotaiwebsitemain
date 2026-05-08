@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 import { JsonLd } from "@/components/JsonLd";
@@ -77,6 +78,18 @@ export default function RootLayout({
       className={`${sora.variable} ${plusJakartaSans.variable} ${dmSans.variable} ${fraunces.variable}`}
     >
       <body suppressHydrationWarning data-v="1" data-switcher="0">
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-F0VYER78MK"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-F0VYER78MK');
+          `}
+        </Script>
         <JsonLd />
         {children}
         <SiteInteractions />
