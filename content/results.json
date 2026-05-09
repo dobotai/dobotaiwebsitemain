@@ -24,50 +24,50 @@
     "videoUrl": "https://www.youtube.com/watch?v=aMPbjjnNyfQ"
   },
   {
-    "client": "Connor Rodgers",
-    "company": "Social Scout",
-    "tag": "7-Fig Email Marketing",
-    "quote": "We really just needed a partner that will help us build the systems and keep up with everything — that's what we got.",
-    "thumbImage": "https://i.ytimg.com/vi/o0Kfo51o-D4/hqdefault.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=o0Kfo51o-D4"
-  },
-  {
     "client": "Meelad Zarrabi",
     "company": "Fluid Creatives",
     "tag": "7-Fig Email Marketing",
     "quote": "I'm very particular and people dislike working with me — you took all the revisions and executed them perfectly.",
-    "thumbImage": "https://i.ytimg.com/vi/YVk_pAuqJEg/hqdefault.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=YVk_pAuqJEg"
+    "thumbImage": "https://i.ytimg.com/vi/o0Kfo51o-D4/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=o0Kfo51o-D4"
   },
   {
     "client": "Samu Kovács",
     "company": "KS Media",
     "tag": "7-Fig Content Marketing",
     "quote": "You took all my ideas and narrowed it down to what makes the most impact — your audit call was just different.",
-    "thumbImage": "https://i.ytimg.com/vi/mIPfV0Q7-1s/hqdefault.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=mIPfV0Q7-1s"
+    "thumbImage": "https://i.ytimg.com/vi/YVk_pAuqJEg/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=YVk_pAuqJEg"
   },
   {
     "client": "Jeppe Schrøder",
     "company": "Markeity",
     "tag": "7-Fig Email Marketing",
     "quote": "The clarity and structure they brought to our ops was something we'd been trying to achieve for months on our own.",
-    "thumbImage": "https://i.ytimg.com/vi/OMcibQlB-oc/hqdefault.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=OMcibQlB-oc"
+    "thumbImage": "https://i.ytimg.com/vi/mIPfV0Q7-1s/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=mIPfV0Q7-1s"
   },
   {
     "client": "Matthew Lucero",
     "company": "Anevo Marketing",
     "tag": "7-Fig Cold Email Agency",
     "quote": "My CRM was costing us tens of thousands in deals — they identified things I didn't even understand and built them out proactively.",
-    "thumbImage": "https://i.ytimg.com/vi/RsW7vr1BMBo/hqdefault.jpg",
-    "videoUrl": "https://www.youtube.com/watch?v=RsW7vr1BMBo"
+    "thumbImage": "https://i.ytimg.com/vi/OMcibQlB-oc/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=OMcibQlB-oc"
   },
   {
     "client": "Dan James",
     "company": "THAKOS",
     "tag": "7-Fig Content Marketing",
     "quote": "My PM was running around like a headless chicken — now his life is 400 trillion times easier. We've saved so many hours.",
+    "thumbImage": "https://i.ytimg.com/vi/RsW7vr1BMBo/hqdefault.jpg",
+    "videoUrl": "https://www.youtube.com/watch?v=RsW7vr1BMBo"
+  },
+  {
+    "client": "Romano D",
+    "company": "Dignano Digital",
+    "tag": "7-Fig Agency",
+    "quote": "",
     "thumbImage": "https://i.ytimg.com/vi/sNiLZMMbcf4/hqdefault.jpg",
     "videoUrl": "https://www.youtube.com/watch?v=sNiLZMMbcf4"
   },
