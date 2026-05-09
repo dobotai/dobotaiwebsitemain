@@ -814,13 +814,7 @@ export default function Home() {
               <h4>Company</h4>
               <ul>
                 <li>
-                  <a href="#top">About Doby</a>
-                </li>
-                <li>
                   <a href="#results">Case Studies</a>
-                </li>
-                <li>
-                  <a href="#top">Blog</a>
                 </li>
                 <li>
                   <a
