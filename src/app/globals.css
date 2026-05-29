@@ -2192,10 +2192,10 @@ body {
 }
 
 /* =========================================
-   SKOOL + FULL-WIDTH VIDEO HERO
+   SKOOL + COMMUNITY MOSAIC
    ========================================= */
 .skool-block {
-  padding: 100px 0 0;
+  padding: 100px 0 80px;
 }
 .skool-block-intro {
   text-align: center;
@@ -2221,128 +2221,70 @@ body {
 .skool-block-cta {
   display: inline-flex;
 }
-.video-hero {
+.skool-mosaic {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 16px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.skool-mosaic-featured {
   position: relative;
-  width: 100%;
-  height: min(520px, 70vh);
-  min-height: 380px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  border-radius: 16px;
   overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #071525;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
 }
-.video-hero-poster {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+.skool-mosaic-thumbs {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 16px;
 }
-.video-hero-poster-img {
-  object-fit: cover;
+.skool-mosaic-thumb {
+  position: relative;
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #071525;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+.skool-mosaic-featured:hover,
+.skool-mosaic-thumb:hover {
+  transform: translateY(-2px);
+  border-color: rgba(63, 200, 253, 0.45);
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.5);
+}
+.skool-mosaic-img {
+  object-fit: contain;
   object-position: center;
 }
-.video-hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(135deg, #071525 0%, #0c2040 40%, #071525 100%);
-}
-.video-hero--poster .video-hero-bg {
-  background: linear-gradient(
-    135deg,
-    rgba(7, 21, 37, 0.9) 0%,
-    rgba(12, 32, 64, 0.85) 40%,
-    rgba(7, 21, 37, 0.92) 100%
-  );
-}
-.video-hero-grid {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  opacity: 0.07;
-  background-image: linear-gradient(var(--accent) 1px, transparent 1px),
-    linear-gradient(90deg, var(--accent) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-.video-hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 720px;
-}
-.video-hero-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 16px;
-}
-.video-hero-title {
-  font-size: clamp(24px, 4vw, 44px);
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 14px;
-  line-height: 1.15;
-  font-family: var(--font-h);
-}
-.video-hero-sub {
-  font-size: 17px;
-  color: rgba(255, 255, 255, 0.65);
-  margin-bottom: 28px;
-  line-height: 1.55;
-}
-.video-play-btn {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: var(--accent);
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--on-blue);
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 0 0 0 rgba(63, 200, 253, 0.4);
-  animation: videoPulse 2.5s ease-in-out infinite;
-  transition: transform var(--transition), background var(--transition);
-  margin-bottom: 10px;
-}
-.video-play-btn:hover {
-  transform: scale(1.08);
-  background: #fff;
-  color: #071525;
-}
-@keyframes videoPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(63, 200, 253, 0.4);
+@media (max-width: 900px) {
+  .skool-mosaic {
+    grid-template-columns: 1fr;
   }
-  70% {
-    box-shadow: 0 0 0 22px rgba(63, 200, 253, 0);
+  .skool-mosaic-thumbs {
+    grid-template-rows: none;
+    grid-template-columns: repeat(3, 1fr);
   }
-  100% {
-    box-shadow: 0 0 0 0 rgba(63, 200, 253, 0);
+  .skool-mosaic-thumb {
+    aspect-ratio: 16 / 10;
   }
 }
-@media (prefers-reduced-motion: reduce) {
-  .video-play-btn {
-    animation: none;
+@media (max-width: 560px) {
+  .skool-mosaic-thumbs {
+    grid-template-columns: 1fr;
   }
-}
-.video-play-label {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.55);
 }
 @media (max-width: 600px) {
-  .video-hero {
-    min-height: 320px;
-    height: auto;
-    padding: 48px 0;
-  }
   .review-slide {
     padding: 0 6px;
   }

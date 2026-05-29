@@ -24,8 +24,3 @@ export function getSiteUrl(): string {
   const raw = process.env.NEXT_PUBLIC_SITE_URL?.trim() || DEFAULT_SITE_URL;
   return raw.replace(/\/$/, "");
 }
-
-export function isSkoolHeroPosterEnabled(): boolean {
-  const v = (process.env.NEXT_PUBLIC_SKOOL_HERO_POSTER ?? "").toLowerCase();
-  return v === "true" || v === "1";
-}

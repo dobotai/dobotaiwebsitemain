@@ -1,18 +1,27 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
-import { isSkoolHeroPosterEnabled, SKOOL_URL } from "@/lib/site-links";
-import { toYouTubeEmbed, VideoModal } from "./VideoModal";
+import { SKOOL_URL } from "@/lib/site-links";
 
-/** Community / brand video aligned with dobotai.com (first embed after CTA). */
-const COMMUNITY_VIDEO_WATCH =
-  "https://www.youtube.com/watch?v=xSQzwaFKTiM";
+const FEATURED = {
+  src: "/skool/classroom.png",
+  alt: "DobotAI Academy classroom — Start Here, Foundations, and Agentic AI tracks",
+};
+
+const THUMBS = [
+  {
+    src: "/skool/intro.png",
+    alt: "Learn to build real AI agents that solve real business problems",
+  },
+  {
+    src: "/skool/lesson.png",
+    alt: "Inside an Agentic AI lesson in the DobotAI Academy",
+  },
+  {
+    src: "/skool/join.png",
+    alt: "DobotAI Academy on Skool — join the community",
+  },
+];
 
 export function SkoolCommunitySection() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const posterEnabled = isSkoolHeroPosterEnabled();
-
   return (
     <section className="skool-block section-alt" id="skool">
       <div className="container skool-block-intro">
@@ -36,52 +45,43 @@ export function SkoolCommunitySection() {
         </a>
       </div>
 
-      <div
-        className={`video-hero video-hero--skool${posterEnabled ? " video-hero--poster" : ""}`}
-      >
-        {posterEnabled ? (
-          <div className="video-hero-poster">
-            <Image
-              src="/skool/video-hero-poster.png"
-              alt="Skool community preview — Automation Founders Hub"
-              fill
-              className="video-hero-poster-img"
-              sizes="100vw"
-              loading="lazy"
-            />
-          </div>
-        ) : null}
-        <div className="video-hero-bg" aria-hidden="true" />
-        <div className="video-hero-grid" aria-hidden="true" />
-        <div className="video-hero-content">
-          <p className="video-hero-label">Inside the community</p>
-          <h2 className="video-hero-title">
-            See what members get — systems, support, and real builds
-          </h2>
-          <p className="video-hero-sub">
-            A short walkthrough of how we teach and implement automation for B2B
-            teams.
-          </p>
-          <button
-            type="button"
-            className="video-play-btn"
-            onClick={() => setModalOpen(true)}
-            aria-label="Play community video"
-          >
-            ▶
-          </button>
-          <span className="video-play-label">Play video</span>
+      <div className="skool-mosaic reveal reveal-delay-2">
+        <a
+          href={SKOOL_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="skool-mosaic-featured"
+          aria-label="See the DobotAI Academy classroom (opens in new tab)"
+        >
+          <Image
+            src={FEATURED.src}
+            alt={FEATURED.alt}
+            fill
+            sizes="(max-width: 900px) 100vw, 66vw"
+            className="skool-mosaic-img"
+          />
+        </a>
+        <div className="skool-mosaic-thumbs">
+          {THUMBS.map((thumb) => (
+            <a
+              key={thumb.src}
+              href={SKOOL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="skool-mosaic-thumb"
+              aria-label={`${thumb.alt} — open Skool (opens in new tab)`}
+            >
+              <Image
+                src={thumb.src}
+                alt={thumb.alt}
+                fill
+                sizes="(max-width: 900px) 50vw, 33vw"
+                className="skool-mosaic-img"
+              />
+            </a>
+          ))}
         </div>
       </div>
-
-      <VideoModal
-        open={modalOpen}
-        embedSrc={
-          modalOpen ? toYouTubeEmbed(COMMUNITY_VIDEO_WATCH) : null
-        }
-        onClose={() => setModalOpen(false)}
-        title="Skool community video"
-      />
     </section>
   );
 }
