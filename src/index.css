@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NP VENTURES — "the audit" system
+   Light paper grounds from the brand palette, ink #0F1825, and one accent:
+   deepskyblue #38C8F8 used as the auditor's highlighter — circles, marks,
+   underlines. Never body text (2:1 on white).
+   Archivo (variable width: condensed caps for statements) / IBM Plex Mono
+   for anything measured. Single light theme, painted explicitly.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --background: #f3f2ed;
+  --foreground: #0f1825;
+  --card: #f8f8f8;
+  --card-foreground: #0f1825;
+  --popover: #f8f8f8;
+  --popover-foreground: #0f1825;
+  --primary: #0f1825;
+  --primary-foreground: #f8f8f8;
+  --secondary: #f1f7fb;
+  --secondary-foreground: #0f1825;
+  --muted: #eceae2;
+  --muted-foreground: #44525f;
+  --accent: #e5f5fd;
+  --accent-foreground: #0f1825;
+  --destructive: #c23a2f;
+  --border: rgba(15, 24, 37, 0.13);
+  --input: rgba(15, 24, 37, 0.2);
+  --ring: #0fa8e0;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* brand palette, verbatim */
+  --color-paper: #f3f2ed;      /* whitesmoke (homepage)  */
+  --color-smoke: #f8f8f8;      /* whitesmoke (brand)     */
+  --color-alice: #f1f7fb;      /* aliceblue              */
+  --color-ghost: #f4eff5;      /* ghostwhite             */
+  --color-mint: #f5faf6;       /* mintcream              */
+  --color-ink: #0f1825;        /* black (homepage)       */
+  --color-ink-2: #44525f;      /* body-muted, 4.5:1+     */
+  --color-slate: #7e8893;      /* lightslategray — labels/large only */
+  --color-sky: #38c8f8;        /* deepskyblue — marks, never body text */
+  --color-sky-deep: #0d94c6;   /* darker sky for small text on paper */
+  --color-line: rgba(15, 24, 37, 0.13);
+  --color-line-2: rgba(15, 24, 37, 0.32);
+
+  --font-display: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --ease-out-quint: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-settle: cubic-bezier(0.306, 0.968, 0.632, 1);
+
+  --animate-accordion-down: accordion-down 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-accordion-up: accordion-up 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  ::selection {
+    background: rgba(56, 200, 248, 0.35);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-sky-deep);
+    outline-offset: 3px;
+  }
+  strong {
+    @apply font-semibold text-ink;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 1ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+    }
+  }
+}
+
+/* mono label */
+@utility lab {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-slate);
+}
+
+/* condensed display statements */
+@utility display-condensed {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 76;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.98;
+}
+
+/* scroll reveals — house easing, IO-triggered once */
+.rise { opacity: 0; transform: translateY(18px); }
+.rise-in {
+  opacity: 1; transform: none;
+  transition: opacity 0.6s var(--ease-out-quint), transform 0.6s var(--ease-settle);
+}
+@media (prefers-reduced-motion: reduce) {
+  .rise { opacity: 1; transform: none; }
+}
+
+/* the dot that travels the audit phases */
+@keyframes phase-dot {
+  from { left: 0; }
+  to { left: calc(100% - 8px); }
+}
+.phase-dot {
+  animation: phase-dot 5.5s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite alternate;
+}
